@@ -1,0 +1,13 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="face-snap.component.scss">
+</head>
+<section class = "snap" [ngClass]="{ snapped: like_text === '😒'}">
+    <h2>{{my_snap.title | uppercase}}</h2>
+    <strong *ngIf="my_snap.author" > By {{my_snap.author}} </strong>
+    <p>{{my_snap.description}}</p>
+    <p><i>{{my_snap.posted_date | date:'d MMMM yyyy'}} </i></p>
+    <p> <button (click)="onDisplay()" >View...</button> </p>
+</section>

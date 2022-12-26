@@ -1,0 +1,16 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="single-face-snap.component.scss">
+</head>
+<section class = "snap" [ngClass]="{ snapped: like_text === '😒'}">
+    <a   routerLink='../' ><button><-Back</button></a>
+    <h2>{{my_snap.title | uppercase}} </h2>
+    <h4 *ngIf="my_snap.author" > By {{my_snap.author}} </h4>
+    <i *ngIf="my_snap.location"> Photo prise à "{{my_snap.location}}" </i>
+    <img [src]="my_snap.image_url" alt="{{my_snap.alternative}}">
+    <p>{{my_snap.description}}</p>
+    <p><i>Posté le {{my_snap.posted_date | date:' d MMMM yyyy à HH:mm'}} </i></p>
+    <p><strong [ngStyle]="{color : 'rgb(0 ,' + my_snap.likes*0.3 + ', 0)'}" > {{my_snap.likes}} </strong> <button (click)="onAddLike()">{{like_text}}</button></p>
+</section>
